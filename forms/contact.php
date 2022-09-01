@@ -37,5 +37,11 @@
   $contact->add_message( $_POST['email'], 'Email');
   $contact->add_message( $_POST['message'], 'Message', 10);
 
-  echo $contact->send();
+  if($contact->send()) {
+    $message = "Successfully send email!";
+  } else {
+    $message = "Failed to send email :(";
+  }
+
+  echo "<script> windows.alert('".$message."') </script>";
 ?>
